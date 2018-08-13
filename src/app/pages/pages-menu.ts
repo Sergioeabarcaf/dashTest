@@ -13,6 +13,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
+    title: 'Libelium',
+    icon: 'nb-cloudy',
+    link: '/pages/libelium',
+    children: [
+      {
+        title: 'WTHP',
+        link: '/pages/libelium/wthp',
+      },
+      {
+        title: 'WCO2',
+        link: '/pages/libelium/wco2',
+      },
+    ],
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

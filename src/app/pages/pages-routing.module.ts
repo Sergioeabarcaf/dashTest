@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
+import { LibeliumComponent } from './libelium/libelium.component';
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -15,6 +17,9 @@ const routes: Routes = [{
   }, {
     path: 'iot-dashboard',
     component: DashboardComponent,
+  }, {
+    path: 'libelium',
+    loadChildren: './libelium/libelium.module#LibeliumModule',
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
