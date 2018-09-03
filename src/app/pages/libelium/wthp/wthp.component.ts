@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ngx-wthp',
-  templateUrl: './wthp.component.html',
-  styleUrls: ['./wthp.component.scss'],
+  template: `<ngx-base></ngx-base>`,
 })
 export class WthpComponent implements OnInit {
 

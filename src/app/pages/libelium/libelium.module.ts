@@ -7,6 +7,7 @@ import { LibeliumRoutingModule } from './libelium-routing.module';
 import { LibeliumComponent } from './libelium.component';
 import { Wco2Component } from './wco2/wco2.component';
 import { WthpComponent } from './wthp/wthp.component';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { WthpComponent } from './wthp/wthp.component';
     LibeliumComponent,
     Wco2Component,
     WthpComponent,
+    BaseComponent,
   ],
   providers: [],
 })
