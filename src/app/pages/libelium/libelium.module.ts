@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { ThemeModule } from '../../@theme/theme.module';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { LibeliumRoutingModule } from './libelium-routing.module';
 
@@ -10,11 +11,14 @@ import { WthpComponent } from './wthp/wthp.component';
 import { BaseComponent } from './base/base.component';
 import { GaugeComponent } from './base/components/gauge/gauge.component';
 import { GaugeDraggerComponent } from './base/components/gauge/gauge-dragger/gauge-dragger.component';
+import { EchartsLineComponent } from './base/components/echarts-line/echarts-line.component';
+import { EchartsAreaComponent } from './base/components/echarts-area/echarts-area.component';
 
 @NgModule({
   imports: [
     ThemeModule,
     LibeliumRoutingModule,
+    NgxEchartsModule,
   ],
   declarations: [
     LibeliumComponent,
@@ -23,6 +27,8 @@ import { GaugeDraggerComponent } from './base/components/gauge/gauge-dragger/gau
     BaseComponent,
     GaugeComponent,
     GaugeDraggerComponent,
+    EchartsLineComponent,
+    EchartsAreaComponent,
   ],
   providers: [],
 })
