@@ -9,12 +9,6 @@ import { NbThemeService } from '@nebular/theme';
 export class GaugeComponent implements OnDestroy {
 
   temperature = 24;
-  temperatureOff = false;
-  temperatureMode = 'cool';
-
-  humidity = 87;
-  humidityOff = false;
-  humidityMode = 'heat';
 
   colors: any;
   themeSubscription: any;

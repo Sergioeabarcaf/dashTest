@@ -1,5 +1,5 @@
 import {
-  Component, HostListener, ViewChild, ElementRef, Input, Output, EventEmitter, AfterViewInit, OnChanges,
+  Component, ViewChild, ElementRef, Input, Output, EventEmitter, AfterViewInit, OnChanges,
 } from '@angular/core';
 
 const VIEW_BOX_SIZE = 300;
@@ -22,7 +22,7 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
   @Input() maxLeap = 0.4;
 
   value = 50;
-  @Output('valueChange') valueChange = new EventEmitter<Number>();
+
   @Input('value') set setValue(value) {
     this.value = value;
   }
@@ -30,24 +30,6 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
   @Input() min = 0; // min output value
   @Input() max = 100; // max output value
   @Input() step = 0.1;
-
-  @Output() power = new EventEmitter<boolean>();
-
-  @HostListener('window:mouseup', ['$event'])
-  onMouseUp(event) {
-    this.recalculateValue(event);
-    this.isMouseDown = false;
-  }
-
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    this.recalculateValue(event);
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.invalidate();
-  }
 
   off = false;
   oldValue: number;
@@ -72,7 +54,7 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
     blurRadius: 15,
   };
 
-  private isMouseDown = false;
+  // private isMouseDown = fals
   private init = false;
 
   constructor() {
@@ -91,27 +73,6 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
     if (this.init) {
       this.invalidate();
     }
-  }
-
-  mouseDown(event) {
-    this.isMouseDown = true;
-    if (!this.off) {
-      this.recalculateValue(event, true);
-    }
-  }
-
-  switchPower() {
-    this.off = !this.off;
-    this.power.emit(!this.off);
-
-    if (this.off) {
-      this.oldValue = this.value;
-      this.value = this.min;
-    } else {
-      this.value = this.oldValue;
-    }
-
-    this.invalidatePinPosition();
   }
 
   private invalidate(): void {
@@ -310,38 +271,6 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
       y: curveRadius * (1 + Math.cos(actualAngle)) + radiusOffset,
     };
     this.invalidateNonSelectedArc();
-  }
-
-  private recalculateValue(event, allowJumping = false) {
-    if (this.isMouseDown && !this.off) {
-      const rect = this.svgRoot.nativeElement.getBoundingClientRect();
-      const center = {
-        x: rect.left + VIEW_BOX_SIZE * this.scaleFactor / 2,
-        y: rect.top + (this.translateYValue + this.radius) * this.scaleFactor,
-      };
-      let actualAngle = Math.atan2(center.x - event.clientX, event.clientY - center.y);
-      if (actualAngle < 0) {
-        actualAngle = actualAngle + 2 * Math.PI;
-      }
-
-      const previousRelativeValue = this.getValuePercentage();
-      let relativeValue = 0;
-      if (actualAngle < this.bottomAngleRad / 2) {
-        relativeValue = 0;
-      } else if (actualAngle > 2 * Math.PI - this.bottomAngleRad / 2) {
-        relativeValue = 1;
-      } else {
-        relativeValue = (actualAngle - this.bottomAngleRad / 2) / (2 * Math.PI - this.bottomAngleRad);
-      }
-
-      const value = this.toValueNumber(relativeValue);
-
-      if (this.value !== value && (allowJumping || Math.abs(relativeValue - previousRelativeValue) < this.maxLeap)) {
-        this.value = value;
-        this.valueChange.emit(this.value);
-        this.invalidatePinPosition();
-      }
-    }
   }
 
   private getValuePercentage() {
