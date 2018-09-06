@@ -4,7 +4,7 @@ import { NbThemeService } from '@nebular/theme';
 @Component({
   selector: 'ngx-gauge',
   templateUrl: './gauge.component.html',
-  styleUrls: ['./gauge.component.scss']
+  styleUrls: ['./gauge.component.scss'],
 })
 export class GaugeComponent implements OnDestroy {
 

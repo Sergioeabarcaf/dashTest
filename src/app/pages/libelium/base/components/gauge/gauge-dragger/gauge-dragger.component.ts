@@ -7,7 +7,7 @@ const VIEW_BOX_SIZE = 300;
 @Component({
   selector: 'ngx-gauge-dragger',
   templateUrl: './gauge-dragger.component.html',
-  styleUrls: ['./gauge-dragger.component.scss']
+  styleUrls: ['./gauge-dragger.component.scss'],
 })
 export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
 
