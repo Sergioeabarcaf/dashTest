@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -12,6 +12,11 @@ export class EchartsAreaComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
 
+  @Input() dataLegend = [];
+  @Input() dataXaxis = [];
+  @Input() dataSeries = [];
+
+
   constructor(private theme: NbThemeService) { }
 
   ngAfterViewInit() {
@@ -22,7 +27,7 @@ export class EchartsAreaComponent implements AfterViewInit, OnDestroy {
 
       this.options = {
         backgroundColor: echarts.bg,
-        color: [colors.warningLight, colors.infoLight, colors.dangerLight, colors.successLight, colors.primaryLight],
+        color: [colors.danger, colors.primary, colors.info, colors.warning],
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -33,7 +38,7 @@ export class EchartsAreaComponent implements AfterViewInit, OnDestroy {
           },
         },
         legend: {
-          data: ['Mail marketing', 'Affiliate advertising', 'Video ad', 'Direct interview', 'Search engine'],
+          data: this.dataLegend,
           textStyle: {
             color: echarts.textColor,
           },
@@ -48,7 +53,7 @@ export class EchartsAreaComponent implements AfterViewInit, OnDestroy {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            data: this.dataXaxis,
             axisTick: {
               alignWithLabel: true,
             },
@@ -84,53 +89,7 @@ export class EchartsAreaComponent implements AfterViewInit, OnDestroy {
             },
           },
         ],
-        series: [
-          {
-            name: 'Mail marketing',
-            type: 'line',
-            stack: 'Total amount',
-            areaStyle: { normal: { opacity: echarts.areaOpacity } },
-            data: [120, 132, 101, 134, 90, 230, 210],
-          },
-          {
-            name: 'Affiliate advertising',
-            type: 'line',
-            stack: 'Total amount',
-            areaStyle: { normal: { opacity: echarts.areaOpacity } },
-            data: [220, 182, 191, 234, 290, 330, 310],
-          },
-          {
-            name: 'Video ad',
-            type: 'line',
-            stack: 'Total amount',
-            areaStyle: { normal: { opacity: echarts.areaOpacity } },
-            data: [150, 232, 201, 154, 190, 330, 410],
-          },
-          {
-            name: 'Direct interview',
-            type: 'line',
-            stack: 'Total amount',
-            areaStyle: { normal: { opacity: echarts.areaOpacity } },
-            data: [320, 332, 301, 334, 390, 330, 320],
-          },
-          {
-            name: 'Search engine',
-            type: 'line',
-            stack: 'Total amount',
-            label: {
-              normal: {
-                show: true,
-                position: 'top',
-                textStyle: {
-                  color: echarts.textColor,
-                },
-              },
-            },
-            areaStyle: { normal: { opacity: echarts.areaOpacity } },
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-          },
-        ],
-      };
+        series: this.dataSeries};
     });
   }
 

@@ -15,7 +15,7 @@
     <nb-card>
       <nb-card-header>Grafico de lineas</nb-card-header>
       <nb-card-body>
-        <ngx-echarts-line [dataLegend]="parametros" [dataXaxis]="time" [dataSeries]="datoSensores"></ngx-echarts-line>
+        <ngx-echarts-line [dataLegend]="parametros" [dataXaxis]="time" [dataSeries]="datoSensoresLine"></ngx-echarts-line>
       </nb-card-body>
     </nb-card>
   </div>
@@ -23,7 +23,7 @@
     <nb-card>
       <nb-card-header>Grafico de área</nb-card-header>
       <nb-card-body>
-        <ngx-echarts-area></ngx-echarts-area>
+        <ngx-echarts-area [dataLegend]="parametros" [dataXaxis]="time" [dataSeries]="datoSensoresArea"></ngx-echarts-area>
       </nb-card-body>
     </nb-card>
   </div>
