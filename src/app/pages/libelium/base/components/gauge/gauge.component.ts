@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -8,7 +8,11 @@ import { NbThemeService } from '@nebular/theme';
 })
 export class GaugeComponent implements OnDestroy {
 
-  temperature = 24;
+  @Input() gaugeValue = 50;
+  @Input() min = 0;
+  @Input() max = 100;
+  @Input() titleParam = 'Gauge';
+  @Input() umParam = 'UM';
 
   colors: any;
   themeSubscription: any;

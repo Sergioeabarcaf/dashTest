@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-lg-3 col-6">
-    <ngx-gauge></ngx-gauge>
+    <ngx-gauge [gaugeValue]="tempValue" [min]="tempMin" [max]="tempMax" [titleParam]="tempTitle" [umParam]="tempUm"></ngx-gauge>
+  </div>
+  <div class="col-lg-3 col-6">
+    <ngx-gauge [gaugeValue]="humValue" [min]="humMin" [max]="humMax" [titleParam]="humTitle" [umParam]="humUm"></ngx-gauge>
+  </div>
+  <div class="col-lg-3 col-6">
+    <ngx-gauge [gaugeValue]="presValue" [min]="presMin" [max]="presMax" [titleParam]="presTitle" [umParam]="presUm"></ngx-gauge>
+  </div>
+  <div class="col-lg-3 col-6">
+    <ngx-gauge [gaugeValue]="co2Value" [min]="co2Min" [max]="co2Max" [titleParam]="co2Title" [umParam]="co2Um"></ngx-gauge>
   </div>
   <div class="col-12">
     <nb-card>

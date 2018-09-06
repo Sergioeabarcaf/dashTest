@@ -1,19 +1,19 @@
-<nb-card size="medium">
+<nb-card size="small">
   <nb-tabset fullWidth>
 
-    <nb-tab tabTitle="Temperature">
+    <nb-tab tabTitle={{titleParam}}>
 
       <div class="slider-container">
-        <ngx-gauge-dragger [(value)]="temperature"
-                                 [min]="12" [max]="30" [disableArcColor]="colors.layoutBg"
+        <ngx-gauge-dragger [value]="gaugeValue"
+                                 [min]="min" [max]="max" [disableArcColor]="colors.layoutBg"
                                  [fillColors]="colors.temperature">
 
           <div class="slider-value-container">
             <div class="value temperature">
-              {{ (temperature | ngxRound) }}
+              {{ (gaugeValue | ngxRound) }}
             </div>
             <div class="desc">
-              Celsius
+              {{ umParam }}
             </div>
           </div>
         </ngx-gauge-dragger>
