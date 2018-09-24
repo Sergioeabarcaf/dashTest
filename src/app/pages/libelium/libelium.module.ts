@@ -5,6 +5,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 
 import { LibeliumRoutingModule } from './libelium-routing.module';
 
+import { LibeliumFirebaseService } from '../../@core/data/libelium-firebase.service';
+
 import { LibeliumComponent } from './libelium.component';
 import { Wco2Component } from './wco2/wco2.component';
 import { WthpComponent } from './wthp/wthp.component';
@@ -30,7 +32,7 @@ import { EchartsAreaComponent } from './base/components/echarts-area/echarts-are
     EchartsLineComponent,
     EchartsAreaComponent,
   ],
-  providers: [],
+  providers: [LibeliumFirebaseService],
 })
 
 export class LibeliumModule { }

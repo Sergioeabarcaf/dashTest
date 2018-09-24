@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LibeliumFirebaseService } from '../../../@core/data/libelium-firebase.service';
 
 @Component({
   selector: 'ngx-wthp',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WthpComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _libeliumFirebase: LibeliumFirebaseService ) { }
 
   ngOnInit() {
   }
