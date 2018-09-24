@@ -9,15 +9,24 @@ import { Observable } from 'rxjs';
                        [presion24]="pres24"
                        [co224]="co224"
                        [time]="time">
-            </ngx-base> {{ items | async | json }}`,
+            </ngx-base> {{ items | json }}`,
 })
 export class Wco2Component implements OnInit {
 
   private deviceMac = '00:13:A2:00:41:5B:67:EB';
-  public items: Observable<any>;
+  public items: any[];
+  public itemsJSON: any;
+
+  public time = [];
+  public temp24 = [];
+  public hum24 = [];
+  public pres24 = [];
+  public co224 = [];
 
   constructor(private _libeliumFirebase: LibeliumFirebaseService) {
-    this.items = this._libeliumFirebase.getData(this.deviceMac);
+    this._libeliumFirebase.getData(this.deviceMac).subscribe((data: any[]) => {
+      this.items = data;
+    });
   }
 
   ngOnInit() {
