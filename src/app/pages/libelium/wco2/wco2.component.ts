@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LibeliumFirebaseService } from '../../../@core/data/libelium-firebase.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ngx-wco2',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
                        [presion24]="pres24"
                        [co224]="co224"
                        [time]="time">
-            </ngx-base>`,
+            </ngx-base> {{ items | async | json }}`,
 })
 export class Wco2Component implements OnInit {
 
-  constructor() { }
+  private deviceMac = '00:13:A2:00:41:5B:67:EB';
+  public items: Observable<any>;
+
+  constructor(private _libeliumFirebase: LibeliumFirebaseService) {
+    this.items = this._libeliumFirebase.getData(this.deviceMac);
+  }
 
   ngOnInit() {
   }
