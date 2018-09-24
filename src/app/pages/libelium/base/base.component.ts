@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ngx-base',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseComponent implements OnInit {
 
-  temperatura24 = [23.5, 23.6, 24.2, 25.0, 25.5, 26.7, 26.8, 26.8, 29.3, 26.5, 25.3];
-  humedad24 = [80.7, 76.9, 75.5, 74.9, 74.2, 72.2, 71.1, 65.6, 62.3, 56.5, 50.3];
-  presion24 = [953, 952, 953, 951, 953, 952, 953, 951, 953, 952, 953];
-  co224 = [750, 960, 782, 1800, 2000, 2300, 1500, 1700, 1600, 1000, 700];
+  @Input() temperatura24 = [23.5, 23.6, 24.2, 25.0, 25.5, 26.7, 26.8, 26.8, 29.3, 26.5, 25.3];
+  @Input() humedad24 = [80.7, 76.9, 75.5, 74.9, 74.2, 72.2, 71.1, 65.6, 62.3, 56.5, 50.3];
+  @Input() presion24 = [953, 952, 953, 951, 953, 952, 953, 951, 953, 952, 953];
+  @Input() co224 = [750, 960, 782, 1800, 2000, 2300, 1500, 1700, 1600, 1000, 700];
+  @Input() parametros = ['Temperatura', 'Humedad', 'Presión', 'CO2'];
+  @Input() time = ['12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'];
 
   // Temperatura Gauge
   tempValue = this.temperatura24[this.temperatura24.length - 1];
@@ -38,11 +40,6 @@ export class BaseComponent implements OnInit {
   co2Max = 0;
   co2Min = 2500;
   co2Um = 'PPM';
-
-  // graficos
-  parametros = ['Temperatura', 'Humedad', 'Presión', 'CO2'];
-  time = ['12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'];
-
 
   // echartsLine
   datoSensoresLine = [
