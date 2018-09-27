@@ -1,6 +1,4 @@
-import {
-  Component, ViewChild, ElementRef, Input, Output, EventEmitter, AfterViewInit, OnChanges,
-} from '@angular/core';
+import { Component, ViewChild, ElementRef, Input, AfterViewInit, OnChanges, OnInit } from '@angular/core';
 
 const VIEW_BOX_SIZE = 300;
 
@@ -9,7 +7,7 @@ const VIEW_BOX_SIZE = 300;
   templateUrl: './gauge-dragger.component.html',
   styleUrls: ['./gauge-dragger.component.scss'],
 })
-export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
+export class GaugeDraggerComponent implements AfterViewInit, OnChanges, OnInit {
 
   @ViewChild('svgRoot') svgRoot: ElementRef;
 
@@ -73,6 +71,10 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges {
     if (this.init) {
       this.invalidate();
     }
+  }
+
+  ngOnInit() {
+    // console.log(` GAUGE-Drager ${ this.value }`);
   }
 
   private invalidate(): void {

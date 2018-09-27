@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy, Input, OnChanges } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -6,9 +6,9 @@ import { NbThemeService } from '@nebular/theme';
   templateUrl: './gauge.component.html',
   styleUrls: ['./gauge.component.scss'],
 })
-export class GaugeComponent implements OnDestroy {
+export class GaugeComponent implements OnDestroy, OnChanges {
 
-  @Input() gaugeValue = 50;
+  @Input() gaugeValue = -1000;
   @Input() min = 0;
   @Input() max = 100;
   @Input() titleParam = 'Gauge';
@@ -27,4 +27,6 @@ export class GaugeComponent implements OnDestroy {
     this.themeSubscription.unsubscribe();
   }
 
+  ngOnChanges() {
+  }
 }

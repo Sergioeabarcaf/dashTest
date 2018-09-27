@@ -12,7 +12,6 @@ export class WthpComponent implements OnInit {
   public items: Observable<any>;
 
   constructor(private _libeliumFirebase: LibeliumFirebaseService) {
-    this.items = this._libeliumFirebase.getData(this.deviceMac);
   }
 
   ngOnInit() {}

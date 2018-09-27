@@ -3,7 +3,7 @@
 
     <nb-tab tabTitle={{titleParam}}>
 
-      <div class="slider-container">
+      <div class="slider-container" *ngIf="gaugeValue != -1000">
         <ngx-gauge-dragger [value]="gaugeValue"
                                  [min]="min" [max]="max" [disableArcColor]="colors.layoutBg"
                                  [fillColors]="colors.temperature">
