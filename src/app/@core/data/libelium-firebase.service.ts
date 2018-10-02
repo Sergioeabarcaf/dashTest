@@ -14,4 +14,8 @@ export class LibeliumFirebaseService {
   getInfoDevice(deviceMAC) {
     return this.db.object(`devices/${ deviceMAC }`).valueChanges();
   }
+
+  getLastData(deviceMac) {
+    return this.db.list(`dataDevices/${ deviceMac }`, ref => ref.limitToLast(1)).valueChanges();
+  }
 }
