@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class Wco2Component {
 
   private deviceMac = '00:13:A2:00:41:5B:67:EB';
-  private infoDevice = {};
+  public infoDevice = {};
   public parametros = [];
 
   constructor(private _libeliumFirebase: LibeliumFirebaseService) {

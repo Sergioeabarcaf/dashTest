@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class WthpComponent {
 
   private deviceMac = '00:13:A2:00:41:04:37:F1';
-  private infoDevice = {};
+  public infoDevice = {};
   public parametros = [];
 
   constructor(private _libeliumFirebase: LibeliumFirebaseService) {
