@@ -25,6 +25,8 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges, OnInit {
     this.value = value;
   }
 
+  @Input() device;
+
   @Input() min = 0; // min output value
   @Input() max = 100; // max output value
   @Input() step = 0.1;
@@ -74,7 +76,6 @@ export class GaugeDraggerComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngOnInit() {
-    // console.log(` GAUGE-Drager ${ this.value }`);
   }
 
   private invalidate(): void {

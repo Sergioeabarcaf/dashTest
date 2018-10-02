@@ -1,19 +1,10 @@
-<div class="row">
-  <!-- <div class="col-lg-3 col-6" *ngIf="parametros.length > 1">
-    <ngx-gauge [gaugeValue]="tempValue" [min]="tempMin" [max]="tempMax" [titleParam]="tempTitle" [umParam]="tempUm"></ngx-gauge>
+<div class="row" *ngIf="parametros.length > 1">
+  <div class="col-lg-3 col-6" *ngFor="let parametro of parametros">
+    <ngx-gauge [device]="deviceMac" [titleParam]=parametro></ngx-gauge>
   </div>
-  <div class="col-lg-3 col-6" *ngIf="humedad24.length > 1">
-    <ngx-gauge [gaugeValue]="humValue" [min]="humMin" [max]="humMax" [titleParam]="humTitle" [umParam]="humUm"></ngx-gauge>
-  </div>
-  <div class="col-lg-3 col-6" *ngIf="presion24.length > 1">
-    <ngx-gauge [gaugeValue]="presValue" [min]="presMin" [max]="presMax" [titleParam]="presTitle" [umParam]="presUm"></ngx-gauge>
-  </div>
-  <div class="col-lg-3 col-6" *ngIf="co224.length > 1">
-    <ngx-gauge [gaugeValue]="co2Value" [min]="co2Min" [max]="co2Max" [titleParam]="co2Title" [umParam]="co2Um"></ngx-gauge>
-  </div> -->
   <div class="col-12" *ngIf="deviceMac != '' && parametros.length > 1">
     <nb-card>
-      <nb-card-header>Grafico de lineas</nb-card-header>
+      <nb-card-header>Gráfico de lineas</nb-card-header>
       <nb-card-body>
         <ngx-echarts-line [device]="deviceMac" [dataLegend]="parametros"></ngx-echarts-line>
       </nb-card-body>
@@ -21,7 +12,7 @@
   </div>
   <div class="col-12" *ngIf="deviceMac != '' && parametros.length > 1">
     <nb-card>
-      <nb-card-header>Grafico de área</nb-card-header>
+      <nb-card-header>Gráfico de área</nb-card-header>
       <nb-card-body>
         <ngx-echarts-area [device]="deviceMac" [dataLegend]="parametros"></ngx-echarts-area>
       </nb-card-body>
