@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LibeliumFirebaseService } from '../../../@core/data/libelium-firebase.service';
 import { Observable } from 'rxjs';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'ngx-wco2',
