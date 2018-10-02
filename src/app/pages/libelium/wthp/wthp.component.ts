@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   selector: 'ngx-wthp',
   template: `<ngx-base [parametros]="parametros"
                        [deviceMac]="deviceMac"
+                       [position]="infoDevice.position"
                        *ngIf="infoDevice">
             </ngx-base>`,
 })

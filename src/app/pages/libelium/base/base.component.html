@@ -18,4 +18,12 @@
       </nb-card-body>
     </nb-card>
   </div>
+  <div class="col-6" *ngIf="position">
+    <nb-card>
+      <nb-card-header>Mapa</nb-card-header>
+      <nb-card-body>
+        <ngx-gmaps [lat]="position.latitude" [lon]="position.longitude"></ngx-gmaps>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>

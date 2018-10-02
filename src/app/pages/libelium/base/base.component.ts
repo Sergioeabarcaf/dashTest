@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 export class BaseComponent {
   @Input() parametros = [];
   @Input() deviceMac: String = '';
+  @Input() position;
 
   constructor() {
   }
