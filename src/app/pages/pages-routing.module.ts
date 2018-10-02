@@ -46,7 +46,7 @@ const routes: Routes = [{
     loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
   }, {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'libelium/wco2',
     pathMatch: 'full',
   }, {
     path: '**',
