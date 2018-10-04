@@ -8,6 +8,7 @@ export class BaseComponent {
   @Input() parametros = [];
   @Input() deviceMac: String = '';
   @Input() position;
+  @Input() nameDevice;
 
   constructor() {
   }

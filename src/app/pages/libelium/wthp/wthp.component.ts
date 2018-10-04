@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   template: `<ngx-base [parametros]="parametros"
                        [deviceMac]="deviceMac"
                        [position]="infoDevice.position"
+                       [nameDevice]="infoDevice.name"
                        *ngIf="infoDevice">
             </ngx-base>`,
 })
