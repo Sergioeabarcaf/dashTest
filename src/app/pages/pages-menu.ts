@@ -18,11 +18,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/libelium',
     children: [
       {
-        title: 'WTHP',
+        title: 'Waspmote THP',
         link: '/pages/libelium/wthp',
       },
       {
-        title: 'WCO2',
+        title: 'Waspmote CO2',
         link: '/pages/libelium/wco2',
       },
     ],
