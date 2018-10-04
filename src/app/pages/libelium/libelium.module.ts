@@ -20,7 +20,7 @@ import { GmapsComponent } from './base/components/gmaps/gmaps.component';
     LibeliumRoutingModule,
     NgxEchartsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCY3-E9fq2SiQAO5PCwZCXt8PI6nh1AlsI',
+      apiKey: '',
       libraries: ['places'],
     }),
   ],
