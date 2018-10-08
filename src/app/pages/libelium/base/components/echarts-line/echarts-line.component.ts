@@ -37,6 +37,11 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy, OnInit {
       name: '',
       type: 'line',
       data: [],
+    },
+    {
+      name: '',
+      type: 'line',
+      data: [],
     }];
 
   @Input() device: string = '';
@@ -52,7 +57,7 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy, OnInit {
 
       this.options = {
         backgroundColor: echarts.bg,
-        color: [colors.danger, colors.primary, colors.info, colors.warning],
+        color: [colors.danger, colors.primary, colors.info, colors.warning, colors.success],
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c}',
@@ -126,10 +131,11 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy, OnInit {
     this.libeliumFirebaseSubscription = this._libeliumFirebase.getData50(this.device).subscribe((data: any[]) => {
       for (let i = 0; i < data.length ; i++) {
         this.dataXaxis.push(formatDate(data[i].timestamp, 'dd/MM - HH:mm', 'en', 'UTC-3'));
-        this.dataSeries[0].data.push(parseFloat(data[i].values.TC));
-        this.dataSeries[1].data.push(parseFloat(data[i].values.HUM));
-        this.dataSeries[2].data.push(parseFloat(data[i].values.PRES) / 100.0);
-        this.dataSeries[3].data.push(parseFloat(data[i].values.CO2));
+        this.dataSeries[0].data.push(parseFloat(data[i].values.BAT));
+        this.dataSeries[1].data.push(parseFloat(data[i].values.TC));
+        this.dataSeries[2].data.push(parseFloat(data[i].values.HUM));
+        this.dataSeries[3].data.push(parseFloat(data[i].values.PRES) / 100.0);
+        this.dataSeries[4].data.push(parseFloat(data[i].values.CO2));
       }
     });
   }

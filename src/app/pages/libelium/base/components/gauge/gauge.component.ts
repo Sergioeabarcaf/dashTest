@@ -45,6 +45,8 @@ export class GaugeComponent implements OnDestroy, OnChanges {
         return parseFloat(data.PRES) / 100.0;
       case 'CO2':
         return parseFloat(data.CO2);
+      case 'Bateria':
+        return parseFloat(data.BAT);
       default:
         return -1;
     }
@@ -68,6 +70,10 @@ export class GaugeComponent implements OnDestroy, OnChanges {
         this.min = 100;
         this.max = 1500;
         return 'PPM';
+      case 'Bateria':
+        this.min = 0;
+        this.max = 100;
+        return '%';
       default:
         return 'UM';
     }

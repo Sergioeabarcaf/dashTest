@@ -9,6 +9,7 @@ export class BaseComponent {
   @Input() deviceMac: String = '';
   @Input() position;
   @Input() nameDevice;
+  @Input() last;
 
   constructor() {
   }
