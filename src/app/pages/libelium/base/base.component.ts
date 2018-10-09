@@ -1,17 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'ngx-base',
   templateUrl: './base.component.html',
 })
-export class BaseComponent {
+export class BaseComponent implements OnChanges {
   @Input() parametros = [];
   @Input() deviceMac: String = '';
   @Input() position;
   @Input() nameDevice;
   @Input() last;
 
-  constructor() {
+  d = new Date();
+  l;
+  diff = null;
+
+  constructor() { }
+
+  ngOnChanges() {
+    this.l = new Date(this.last);
+    this.diff = this.d.getTime() - this.l.getTime();
   }
 
 }

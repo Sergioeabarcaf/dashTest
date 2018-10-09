@@ -1,8 +1,14 @@
 <div class="row" *ngIf="parametros.length > 1">
-  <div class="col-12">
+  <div class="col-12" *ngIf="diff">
     <nb-card>
-      <nb-card-header>
-        Ultimo dato obtenido: {{ last | date:'dd/MM/yyyy - HH:mm'}}
+      <nb-card-header *ngIf="diff < 3600000">
+        Actualizado hace: {{ diff | date:'mm'}} Minutos.
+      </nb-card-header>
+      <nb-card-header *ngIf="diff >= 3600000 && diff < 86400000">
+        Actualizado hace: {{ diff | date:'HH'}} Horas.
+      </nb-card-header>
+      <nb-card-header *ngIf="diff >= 86400000">
+        Actualizado hace: {{ diff | date:'dd'}} Días.
       </nb-card-header>
     </nb-card>
   </div>
