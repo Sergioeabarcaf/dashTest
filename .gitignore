@@ -43,3 +43,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Firebase
+database.rules.json
+*firebase*
+public/
