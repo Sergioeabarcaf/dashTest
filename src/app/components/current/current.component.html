@@ -1,22 +1,37 @@
-<div class="row border text-center align-items-center">
-  <div class="col-4">
-    <div class="row text-center">
-      <div class="col-12">
-        <p>Temperatura</p>
-        <h2>32</h2>
-      </div>
-      <div class="col-12">
-          <p>Humedad</p>
-          <h2>32</h2>
+<!-- Mosrar Spinner con texto en caso de lodat = true -->
+<div class="row" *ngIf="load">
+    <div class="col-12 text-center">
+        <div class="alert alert-warning" role="alert">
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            Obteniendo datos...
         </div>
     </div>
-  </div>
-  <div class="col-8">
-      <p>Presion: 950 hPa.</p>
-      <p>CO2: 330 PPM.</p>
-      <p>Batería: 100%.</p>
-  </div>
-  <div class="col-12 border">
-    <p>Actualizado hace: 20 minutos</p>
-  </div>
+</div>
+
+<!-- Mosrar contenido en caso de lodat = !true -->
+<div class="row border text-center align-items-center" *ngIf="!load">
+    <div class="col-4">
+        <div class="row text-center">
+            <div class="col-12">
+                <p>Temperatura</p>
+                <h2>{{ last.values.TC | number:'1.0-1' }} °C</h2>
+            </div>
+            <div class="col-12">
+                <p>Humedad</p>
+                <h2>{{ last.values.HUM | number:'1.0-1' }} %hr</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <p>Presion: {{ (last.values.PRES / 100 ) | number:'3.0-1' }} hPa.</p>
+        <p>CO2: {{ last.values.CO2 | number:'3.0-1' }} PPM.</p>
+        <p>Batería: {{ last.values.BAT | number:'2.0-1' }}%.</p>
+    </div>
+    <div class="col-12 border">
+        <p *ngIf="timeDifference < 3600000"><small>Actualizado hace: {{ timeDifference | date:'mm'}} Minutos.</small></p>
+        <p *ngIf="timeDifference  >= 3600000 && timeDifference < 86400000"><small>Actualizado hace: {{ timeDifference | date:'HH'}} Horas.</small></p>
+        <p *ngIf="timeDifference >= 86400000"><small>Actualizado hace: {{ timeDifference | date:'dd'}} Días.</small></p>
+    </div>
 </div>
