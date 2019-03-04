@@ -10,17 +10,20 @@ import { MapComponent } from './components/map/map.component';
 import { CurrentComponent } from './components/current/current.component';
 import { History24HoursComponent } from './components/history24-hours/history24-hours.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     CurrentComponent,
-    History24HoursComponent
+    History24HoursComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyCY3-E9fq2SiQAO5PCwZCXt8PI6nh1AlsI'})
   ],
   providers: [],
   bootstrap: [AppComponent]

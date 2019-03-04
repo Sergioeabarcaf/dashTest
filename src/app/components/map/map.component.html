@@ -1,3 +1,21 @@
-<p>
-  map works!
-</p>
+<!-- Mosrar Spinner con texto en caso de load = true -->
+<div class="row" *ngIf="load">
+    <div class="col-12 text-center">
+        <div class="alert alert-warning" role="alert">
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            Obteniendo datos...
+        </div>
+    </div>
+</div>
+
+<!-- Mosrar mapa en caso de load = false -->
+<div class="row" *ngIf="!load">
+    <div class="col-12">
+        <!-- Uso de libreria AGM -->
+        <agm-map [latitude]="position.latitude" [longitude]="position.longitude" [zoom]=16>
+            <agm-marker [latitude]="position.latitude" [longitude]="position.longitude" [label]=name></agm-marker>
+        </agm-map>
+    </div>
+</div>
